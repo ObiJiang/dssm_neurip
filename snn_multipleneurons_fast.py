@@ -2,8 +2,10 @@ import numpy as np
 import time
 from sklearn.utils import shuffle
 from scipy.sparse import csr_matrix, identity
-import cupy as cp
-from cupyx.scipy.sparse import csr_matrix as csr_gpu
+# import cupy as cp
+# from cupyx.scipy.sparse import csr_matrix as csr_gpu
+import numpy as cp
+from scipy.sparse import csr_matrix as csr_gpu
 
 class network_weights(object):
     def __init__(self, NpS, previous_NpS, distance_parameter, input_dim, stride, lateral_distance):

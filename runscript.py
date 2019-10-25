@@ -4,24 +4,26 @@ import pickle
 from snn_multipleneurons_fast import *
 import sys
 from sklearn.svm import LinearSVC
-from thundersvm import *
+from mnist_data import get_mnist
+# from thundersvm import *
 
 import warnings
 warnings.filterwarnings("ignore")
 
 tanh_factors = list(map(float, sys.argv[1].split(',')))
-distance_parameter=list(map(float, sys.argv[2].split(',')))
-stride=list(map(float, sys.argv[3].split(',')))
-gamma_factor=float(sys.argv[4])
+distance_parameter= list(map(float, sys.argv[2].split(',')))
+stride= list(map(float, sys.argv[3].split(',')))
+gamma_factor= float(sys.argv[4])
 mult_factor  = list(map(float, sys.argv[5].split(',')))
 NpSs = list(map(int, sys.argv[6].split(',')))
 
 lateral_distance = [0]*len(distance_parameter)
 
-x_train = np.load('x_train.npy')
-x_test = np.load('x_test.npy')
-y_train = np.load('y_train.npy')
-y_test = np.load('y_test.npy')
+x_train, x_test, y_train, y_test = get_mnist()
+# x_train = np.load('x_train.npy')
+# x_test = np.load('x_test.npy')
+# y_train = np.load('y_train.npy')
+# y_test = np.load('y_test.npy')
 
 image_dim = 28
 channels = 1
